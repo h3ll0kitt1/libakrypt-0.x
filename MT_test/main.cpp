@@ -1,8 +1,6 @@
 #include <iostream>
 #include <random>
 
-using namespace std;
-
 int main()
 {
     std::cout << "mt19937 from <random> " <<std::endl;
