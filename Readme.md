@@ -82,6 +82,10 @@ static int ak_random_mt19937_random( ak_random rnd, const ak_pointer ptr, const 
 
 написать что изменено
 
+### ../MT_test/main.cpp
+
+написать что просто числа для проверки
+
 ## Про mt19937, который встраивался:
 
 ### Алгоритм:
