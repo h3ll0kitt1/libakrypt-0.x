@@ -4,9 +4,32 @@
 
 ### ak_oid.c
 
-написать что добавлено
+Библиотека `libakrypt` поддерживает свое собственное дерево идентификаторов, корнем
+  которого служит последовательность `1.2.643.2.52.1`.
+  Данные значения используются в случае, когда идентификаторы алгоритмов не определены
+  ни рекомендациями ТК 26, ни существующими реализациями других производителей
+  программного обеспечения.
 
-### ak_random.c
+  Поддеревья алгоритмов и их параметров определяются следующим образом.
+
+  - `1.2.643.2.52.1.1` генераторы псевдо-случайных чисел,
+  
+  Для принятого в бибилиотеке поиска   добавлены:
+  
+  ```c
+  static const char *asn1_mt19937_n[] =     { "mt19937", NULL };
+  static const char *asn1_mt19937_i[] =     { "1.2.643.2.52.1.1.5", NULL };
+  
+  ```
+  
+  ```c
+  { random_generator, algorithm, asn1_mt19937_i, asn1_mt19937_n, NULL,
+  {{ sizeof( struct random ), (ak_function_create_object *)ak_random_create_mt19937,
+                             (ak_function_destroy_object *)ak_random_destroy, NULL, NULL, NULL },
+                                                               ak_object_undefined, NULL, NULL }}
+  ```
+
+### libakrypt.h 
 
 В struct random  в union data  добавлена struct MT для внутреннего состояния mt19937
 
@@ -24,7 +47,7 @@ struct {
   dll_export int ak_random_create_mt19937( ak_random );
 ```
 
-### libakrypt.h
+### ak_random.c
 
 написать что добавлено
 
