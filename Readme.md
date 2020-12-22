@@ -111,7 +111,7 @@ void  test_function( ak_function_random create )
 ### ../MT_test/
 
 Является отдельным с++ проектом , со своим cmakelists.txt для проверки работы Вихря Мерсенна, 
-sstd::mt19937 генератор вызывается с таким же seed, как и для mt19937 libakrypt:
+std::mt19937 генератор вызывается с таким же seed, как и для mt19937 libakrypt:
 
 ```c
 std::mt19937 generator (5489);
@@ -123,11 +123,21 @@ std::mt19937 generator (5489);
 
 ### Алгоритм:
 
-Описание:
+#### Описание: 
 
-Ссылка откуда взято описание: 
+В приложенном в classroom отчете 
 
 ### Параметры:
+
+(w, n, m, r) = (32, 624, 397, 31)
+a = 9908B0DF16
+(u, d) = (11, FFFFFFFF16)
+(s, b) = (7, 9D2C568016)
+(t, c) = (15, EFC6000016)
+l = 18
+
+most significant w-r bits - 0x80000000
+least significant r bits -  0x7fffffff
 
 ## Результаты:
  
