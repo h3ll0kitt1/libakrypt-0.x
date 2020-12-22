@@ -86,6 +86,10 @@ static int ak_random_mt19937_random( ak_random rnd, const ak_pointer ptr, const 
 
 ### Алгоритм:
 
+Описание:
+
+Ссылка откуда взято описание: 
+
 ### Параметры:
 
 ## Результаты:
