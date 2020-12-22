@@ -408,7 +408,7 @@ extern "C" {
        ak_uint32 value;
      /*! \brief Файловый дескриптор */
        int fd;
-     /*! \brief Inner state for mt19937 */
+     /*! \brief Внутреннее состояние  mt19937 генератора */
        struct {
 
           ak_uint32 mt[624];
