@@ -1,17 +1,17 @@
-# Libakrypt: mt19937 build-in
+# Libakrypt: mt19937
 
-* how mt19937 works (what constants  are used)
+## Что было изменено в библиотеке и в каких файлах:
 
-* what was changed and in what files
+## Про mt19937, который встраивался:
 
-* about test program ( mersenne_twister from <random> c++ lib) - test output from build-in MT19937 with output from c++ MT19937
- results in MT_test 
+## Результаты:
  
- * show that results are identical 
- 
- 
+Последовательность, полученная с помощью  std::mt19937 из \<random> для C++:
 ![](MT_test/image.png)
 
+Последовательнось, полученная с помощью функции после встраивания в Libakrypt:
 ![](MT_test/libacrypt_test_results.jpg)
+
+Вывод: полученные последовательности совпадают. 
 
 
