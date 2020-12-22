@@ -23,7 +23,7 @@
                                                                ak_object_undefined, NULL, NULL }}
   ```
 
-### libakrypt.h 
+### source/libakrypt.h 
 
 В struct random  в union data  добавлена struct MT для внутреннего состояния mt19937
 
@@ -41,7 +41,7 @@ struct {
   dll_export int ak_random_create_mt19937( ak_random );
 ```
 
-### ak_random.c
+### source/ak_random.c
 
 Добавлена реализация класса rng_mt19937  
 
@@ -56,10 +56,10 @@ int ak_random_create_mt19937( ak_random generator );
 ```
 
 
-### ../examples/test-random01.c
+### examples/test-random01.c
 
 Тестовый файл переделан для проверки mt19937. Функция test_function выводит
-сгенерированную последовательность чисел, каждое число unsigned int (ak_uint32)
+сгенерированную последовательность чисел, каждое число `unsigned int` (`ak_uint32`)
 seed задается внутри функции и равен 5489;
 
 ```c
@@ -86,7 +86,7 @@ void  test_function( ak_function_random create )
 ```
 
 
-### ../MT_test/
+### MT_test/
 
 Является отдельным с++ проектом , со своим cmakelists.txt для проверки работы Вихря Мерсенна, 
 std::mt19937 генератор вызывается с таким же seed, как и для mt19937 libakrypt:
