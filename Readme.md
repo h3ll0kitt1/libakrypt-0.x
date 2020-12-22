@@ -25,7 +25,7 @@
 
 ### source/libakrypt.h 
 
-В struct random  в union data  добавлена struct MT для внутреннего состояния mt19937
+В `struct random`  в `union data`  добавлена `struct MT` для внутреннего состояния mt19937
 
 ```c
 struct {
