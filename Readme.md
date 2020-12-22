@@ -50,31 +50,9 @@ struct {
 
 ```c
 static int ak_random_mt19937_next( ak_random rnd );
-
 static int ak_random_mt19937_randomize_ptr( ak_random rnd, const ak_pointer ptr, const ssize_t size );
-
 static int ak_random_mt19937_random( ak_random rnd, const ak_pointer ptr, const ssize_t size );
-```
-
-```c
-
- int ak_random_create_mt19937( ak_random generator )
- {
-     int error = ak_error_ok;
-     ak_uint32 dword = (ak_uint32)ak_random_value();
-
-     if(( error = ak_random_create( generator )) != ak_error_ok )
-         return ak_error_message( error, __func__ , "wrong initialization of random generator" );
-
-     generator->oid = ak_oid_find_by_name( "mt19937" );
-     generator->next = ak_random_mt19937_next;
-     generator->randomize_ptr = ak_random_mt19937_randomize_ptr;
-     generator->random = ak_random_mt19937_random;
-
-     /* для корректной работы присваиваем какое-то случайное начальное значение */
-      ak_random_mt19937_randomize_ptr( generator, &dword, sizeof( ak_uint32 ));
-      return error;
- }
+int ak_random_create_mt19937( ak_random generator );
 ```
 
 
