@@ -8,4 +8,10 @@
  results in MT_test 
  
  * show that results are identical 
+ 
+ 
+![](MT_test/image.png)
+
+![](MT_test/libacrypt_test_results.jpg)
+
 
