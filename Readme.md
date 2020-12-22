@@ -80,11 +80,44 @@ static int ak_random_mt19937_random( ak_random rnd, const ak_pointer ptr, const 
 
 ### ../examples/test-random01.c
 
-написать что изменено
+Тестовый файл переделан для проверки mt19937. Функция test_function выводит
+сгенерированную последовательность чисел, каждое число unsigned int (ak_uint32)
+seed задается внутри функции и равен 5489;
 
-### ../MT_test/main.cpp
+```c
+void  test_function( ak_function_random create )
+{
+ struct random generator;
+ ak_uint32 seed[1] = {5489}; /* seed */
+ int i = 0;
+ ak_uint32 buffer[9]; /* массив сгенерированных значений по 32 бита */
+ create( &generator );
+ printf( "%s: ", generator.oid->name[0] ); fflush( stdout );
+ if( generator.randomize_ptr != NULL )
+       ak_random_randomize( &generator, &seed, sizeof( seed ));
+       
+  ak_random_ptr( &generator, buffer, 9 );
 
-написать что просто числа для проверки
+  for( i = 0; i < 9; i++ )
+  {
+      printf( "%u ", buffer[i] );
+  }
+  printf( "  \n" );
+  ak_random_destroy( &generator );
+}
+```
+
+
+### ../MT_test/
+
+Является отдельным с++ проектом , со своим cmakelists.txt для проверки работы Вихря Мерсенна, 
+sstd::mt19937 генератор вызывается с таким же seed, как и для mt19937 libakrypt:
+
+```c
+std::mt19937 generator (5489);
+```
+
+Также в данном каталоге находятся скриншоты с выводом терминалов для обоих случаев
 
 ## Про mt19937, который встраивался:
 
