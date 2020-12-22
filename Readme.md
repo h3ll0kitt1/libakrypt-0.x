@@ -8,7 +8,21 @@
 
 ### ak_random.c
 
-написать что добавлено
+В struct random  в union data  добавлена struct MT для внутреннего состояния mt19937
+
+```c
+struct {
+   ak_uint32 mt[624];
+   int index;
+   ak_uint32 value;
+} MT;
+ ```
+
+Добавлена инициализация контекста mt19937 
+ 
+```c
+  dll_export int ak_random_create_mt19937( ak_random );
+```
 
 ### libakrypt.h
 
